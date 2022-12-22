@@ -130,19 +130,21 @@ class Effects_ImageCarousel extends Widget_Base
 ?>
     <div class="effectsimagecarousel-area">
       <div class="effectsimagecarousel owl-carousel">
-        <a href="<?php echo esc_url($item['link']['url']); ?>">
-          <?php
-          if ($list) {
-            foreach ($list as $index => $item) {
-          ?>
+
+        <?php
+        if ($list) {
+          foreach ($list as $index => $item) {
+        ?>
+            <a href="<?php echo esc_url($item['link']['url']); ?>">
               <div class="item">
                 <img src="<?php echo esc_url($item['list_image']['url']); ?>" alt="<?php echo $item['list_title']; ?>" class="effectscarouselimage">
               </div>
-          <?php
-            }
+            </a>
+        <?php
           }
-          ?>
-        </a>
+        }
+        ?>
+
       </div>
     </div>
   <?php
