@@ -84,6 +84,21 @@ class Effects_ImageCarousel extends Widget_Base
       ]
     );
 
+    $repeater->add_control(
+      'link',
+      [
+        'label' => __('Link', 'effects'),
+        'type' => \Elementor\Controls_Manager::URL,
+        'placeholder' => __('https://example.com', 'effects'),
+        'default' => [
+          'url' => __('#', 'effects'),
+        ],
+        'dynamic' => [
+          'active' => true,
+        ],
+      ]
+    );
+
     $this->add_control(
       'list',
       [
@@ -115,17 +130,19 @@ class Effects_ImageCarousel extends Widget_Base
 ?>
     <div class="effectsimagecarousel-area">
       <div class="effectsimagecarousel owl-carousel">
-        <?php
-        if ($list) {
-          foreach ($list as $index => $item) {
-        ?>
-            <div class="item">
-              <img src="<?php echo esc_url($item['list_image']['url']); ?>" alt="<?php echo $item['list_title']; ?>" class="effectscarouselimage">
-            </div>
-        <?php
+        <a href="<?php echo esc_url($item['link']['url']); ?>">
+          <?php
+          if ($list) {
+            foreach ($list as $index => $item) {
+          ?>
+              <div class="item">
+                <img src="<?php echo esc_url($item['list_image']['url']); ?>" alt="<?php echo $item['list_title']; ?>" class="effectscarouselimage">
+              </div>
+          <?php
+            }
           }
-        }
-        ?>
+          ?>
+        </a>
       </div>
     </div>
   <?php
