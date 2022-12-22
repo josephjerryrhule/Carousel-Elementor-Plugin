@@ -1,0 +1,10 @@
+@import "./bootstrap/bootstrap.scss";
+
+
+@media(max-width:767px) {
+  .effectsimagecarousel {
+    .owl-dots {
+      text-align: center;
+    }
+  }
+}
